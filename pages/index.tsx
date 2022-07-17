@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
+import Navbar from "../components/Navbar";
 
 const Home: NextPage = () => {
   return (
@@ -9,7 +9,9 @@ const Home: NextPage = () => {
         <title>Amazon clone</title>
       </Head>
       <main>
-        <h1>hello amazon clone 2.0 </h1>
+        <Navbar />
+        {/* body */}
+        {/* footer */}
       </main>
     </div>
   );
