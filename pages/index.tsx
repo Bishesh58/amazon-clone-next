@@ -13,7 +13,7 @@ interface Props {
 const Home = ({ products }: Props) => {
   //console.log(products);
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-gray-100">
       <Head>
         <title>Amazon clone</title>
       </Head>
