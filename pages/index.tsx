@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Navbar from "../components/Navbar";
+import Banner from "../components/Banner";
 
 const Home: NextPage = () => {
   return (
@@ -11,6 +12,10 @@ const Home: NextPage = () => {
       <main>
         <Navbar />
         {/* body */}
+        <main className="max-w-7xl mx-auto">
+          <Banner />
+        </main>
+
         {/* footer */}
       </main>
     </div>
