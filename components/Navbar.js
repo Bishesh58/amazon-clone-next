@@ -4,8 +4,11 @@ import {
   SearchIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 function Navbar() {
+  const { data: session } = useSession();
+
   return (
     <header>
       {/* top nav */}
@@ -26,9 +29,12 @@ function Navbar() {
           />
           <SearchIcon className="h-12 p-4" />
         </div>
-        <div className="text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
+        <div
+          onClick={!session ? signIn : signOut}
+          className="text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap"
+        >
           <div className=" link">
-            <p>Hello, bishesh</p>
+            <p>{session ? `Hello, ${session.user.name}!` : "Sign In"}</p>
             <p className="font-extrabold md:text-sm">Account & Lists</p>
           </div>
           <div className=" link">
