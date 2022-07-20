@@ -1,8 +1,24 @@
 import Image from "next/image";
 import { StarIcon } from "@heroicons/react/solid";
+import { useDispatch } from "react-redux";
+import { addToBasket } from "../slices/basketSlice";
 
 function Product({ id, title, price, description, category, image, rating }) {
   const rate = Math.round(rating.rate);
+  const dispatch = useDispatch();
+  const addItemToBasket = () => {
+    const product = {
+      id,
+      title,
+      price,
+      description,
+      category,
+      image,
+      rating,
+    };
+    dispatch(addToBasket(product));
+  };
+
   return (
     <div className="relative flex flex-col m-5 bg-white z-30  p-10 ">
       <p className="absolute top-2 right-2 text-xs italic text-gray-400">
@@ -19,13 +35,15 @@ function Product({ id, title, price, description, category, image, rating }) {
         ))}
       </div>
       <p className="text-xs mt-2 mb-2 line-clamp-2">{description}</p>
-      <div className="mb-5">${price}</div>
+      <div >${price}</div>
       <div className="flex items-center space-x-2">
         <img className="w-12" src="https://links.papareact.com/fdw" alt="" />
         <p className="text-xs text-gray-500">FREE Next-day Delivery</p>
       </div>
 
-      <button className="mt-auto button">Add to Basket</button>
+      <button onClick={addItemToBasket} className="mt-auto button">
+        Add to Basket
+      </button>
     </div>
   );
 }

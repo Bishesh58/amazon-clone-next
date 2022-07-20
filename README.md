@@ -2,6 +2,7 @@
 
 - nextjs
 - tailwindcss
+- typescript
 - reduxjs
 - firebase
 - next-auth
