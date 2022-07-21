@@ -4,7 +4,7 @@ export default async (req, res) => {
   const { items, email } = req.body;
   const transformedItems = items.map((item) => ({
     price_data: {
-      currency: "gbp",
+      currency: "nzd",
       product_data: {
         images: [item.image],
         name: item.title,
@@ -17,7 +17,7 @@ export default async (req, res) => {
 
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
-    shipping_rates: ["shr_1IsZ5CGmPqch1yB0WRrPmEKY"],
+    shipping_rates: ["shr_1LNxzAGoaSJY9UoKy1DqhPFN"],
     shipping_address_collection: {
       allowed_countries: ["GB", "US", "CA"],
     },
