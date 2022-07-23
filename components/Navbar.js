@@ -9,11 +9,10 @@ import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { selectItems } from "../slices/basketSlice";
 
-
 function Navbar() {
   const { data: session } = useSession();
   const router = useRouter();
-  const items = useSelector(selectItems)
+  const items = useSelector(selectItems);
   return (
     <header>
       {/* top nav */}
@@ -40,7 +39,10 @@ function Navbar() {
             <p>{session ? `Hello, ${session.user.name}!` : "Sign In"}</p>
             <p className="font-extrabold md:text-sm">Account & Lists</p>
           </div>
-          <div className=" link">
+          <div
+            onClick={() => session && router.push("/orders")}
+            className="cursor-pointer link"
+          >
             <p>Returns</p>
             <p className="font-extrabold md:text-sm">& Orders</p>
           </div>
