@@ -38,7 +38,7 @@ function checkout() {
   return (
     <div className="bg-gray-100">
       <Navbar />
-      <main className="lg:flex max-w-screen-2xl mx-auto">
+      <main className="lg:flex max-w-screen-2xl mx-auto h-screen">
         {/* left */}
         <div className="flex-grow m-5 shadow-sm">
           <Image
